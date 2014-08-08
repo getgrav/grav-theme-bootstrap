@@ -1,0 +1,19 @@
+// styling
+.callout {
+    background: $text-bg;
+    color: $text-text;
+    padding: 15px $content-padding;
+
+    .align-left {
+        float: left;
+        margin-right: 15px;
+    }
+
+    .align-right {
+        float: right;
+        margin-left: 15px;
+    }
+    img {
+        border-radius: $border-radius;
+    }
+}

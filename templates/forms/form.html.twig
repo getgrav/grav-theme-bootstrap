@@ -1,0 +1,20 @@
+<div class="alert">{{ form.message }}</div>
+
+<form class="form-horizontal" name="{{ form.name }}"
+      action="{{ uri.rootUrl ~ (form.action|default(page.route)) }}"
+      method="{{ form.method|upper|default('POST') }}">
+{% for field in form.fields %}
+    {% set value = form.value(field.name) %}
+    <div class="form-group">
+        {% include "forms/fields/#{field.type}/#{field.type}.html.twig" %}
+    </div>
+{% endfor %}
+
+	<div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+    	{% for button in form.buttons %}
+    	    <button class="btn {{ button.type =='submit' ? 'btn-primary': 'btn-default' }}" type="{{ button.type|default('submit') }}">{{ button.value|default('Submit') }}</button>
+    	{% endfor %}
+        </div>
+	</div>
+</form>
