@@ -27,12 +27,15 @@
         {# Custom styles for this theme #}
         <link href="{{ theme_url }}/css-compiled/theme.css" rel="stylesheet">
 
-
+        <script src="{{ theme_url }}/js/jquery-2.1.1.min.js"></script>
+        <script src="{{ theme_url }}/js/modernizr.custom.71422.js"></script>
+        <script src="{{ theme_url }}/js/bootstrap.min.js"></script>
         {# HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries #}
         <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="{{ theme_url }}/js/html5shiv-printshiv.min.js"></script>
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
         <![endif]-->
+        {% block javascripts %}{% endblock %}
         {% endblock head%}
     </head>
 
