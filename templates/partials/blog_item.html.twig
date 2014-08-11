@@ -14,9 +14,9 @@
         </span>
         {% endif %}
         {% if big_header %}
-            {{ page.assets.images|first.cropResize(900,600).html('','blog-header-image') }}
+            {{ page.media.images|first.cropResize(900,600).html('','blog-header-image') }}
         {% else %}
-            {{ page.assets.images|first.cropZoom(900,300).html('','blog-header-image') }}
+            {{ page.media.images|first.cropZoom(900,300).html('','blog-header-image') }}
         {% endif %}
 
     </div>
