@@ -1,0 +1,28 @@
+{% embed 'partials/base.html.twig' %}
+
+	{% set base_url = base_url_relative ~ site.blog.route %}
+
+	{% block content %}
+        <div class="container">
+
+		<div class="row">
+                <div class="col-sm-8 blog-main">
+                    {% include 'partials/breadcrumbs.html.twig' %}
+
+    			    {% include 'partials/blog_item.html.twig' with {'truncate':false,'big_header':true} %}
+    			</div>
+
+                <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+    				{% include 'partials/sidebar.html.twig' %}
+    			</div>
+    		</div>
+        </div>
+	{% endblock %}
+
+	{% block pagination %}
+	    {% if pagination %}
+	    {% include 'pagination.html.twig' %}
+	    {% endif %}
+	{% endblock %}
+
+{% endembed %}

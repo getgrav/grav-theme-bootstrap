@@ -1,0 +1,9 @@
+{% set crumbs = breadcrumbs.get() %}
+
+{% if crumbs|length > 1 %}
+<ol class="breadcrumb">
+    {% for crumb in crumbs %}
+    <li><a href="{{ crumb.url }}">{{ crumb.menu }}</a></li>
+    {% endfor %}
+</ol>
+{% endif %}

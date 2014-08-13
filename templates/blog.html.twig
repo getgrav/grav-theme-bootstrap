@@ -1,0 +1,39 @@
+{% embed 'partials/base.html.twig' %}
+
+	{% set collection = page.collection() %}
+	{% set base_url = base_url_relative ~ site.blog.route %}
+
+	{% block content %}
+        <div class="header">
+            <div class="container">
+                {{ page.content }}
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-8 blog-main">
+
+                    {% include 'partials/breadcrumbs.html.twig' %}
+
+                    {% for child in collection %}
+                        {% include 'partials/blog_item.html.twig' with {'page':child, 'truncate':true} %}
+                    {% endfor %}
+
+                </div>
+
+        		<div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+       				{% include 'partials/sidebar.html.twig' %}
+        		</div>
+            </div>
+        </div>
+	{% endblock %}
+
+	{% block pagination %}
+	    {% if collection.params.pagination %}
+	    {% include 'pagination.html.twig' with {'pagination':collection.params.pagination} %}
+	    {% endif %}
+	{% endblock %}
+
+{% endembed %}
+
+

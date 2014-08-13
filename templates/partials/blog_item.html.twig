@@ -1,0 +1,33 @@
+<div class="list-item">
+
+    <div class="list-blog-header">
+
+        <h3><a href="{{ page.url }}">{{ page.title }}</a></h3>
+        <span class="list-blog-date">
+            <i class="fa fa-calendar"></i> <span>{{ page.date|date("F j, Y, g:i a") }}</span>
+        </span>
+        {% if page.taxonomy.tag %}
+        <span class="tags pull-right">
+            {% for tag in page.taxonomy.tag %}
+            <a class="label label-primary" href="{{ base_url }}/tag:{{ tag }}">{{ tag }}</a>
+            {% endfor %}
+        </span>
+        {% endif %}
+        {% if big_header %}
+            {{ page.media.images|first.cropResize(900,600).html('','blog-header-image') }}
+        {% else %}
+            {{ page.media.images|first.cropZoom(900,300).html('','blog-header-image') }}
+        {% endif %}
+
+    </div>
+
+    <div class="list-blog-padding">
+    {% if truncate %}
+        <p>{{ page.content|truncate(550) }}</p>
+        <p><a class="btn btn-default" href="{{ page.url }}">Continue Reading...</a></p>
+    {% else %}
+        <p>{{ page.content }}</p>
+    {% endif %}
+    </div>
+
+</div>
