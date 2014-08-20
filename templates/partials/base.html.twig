@@ -19,21 +19,21 @@
 
         <link rel="icon" type="image/png" href="{{ theme_url }}/images/favicon.png" />
             {% block stylesheets %}
-            {% do assets.add('@theme/css:bootstrap.min.css',102) %}
-            {% do assets.add('@theme/css:font-awesome.min.css',101) %}
-            {% do assets.add('@theme/css-compiled:theme.css',100) %}
+            {% do assets.add('theme://css/bootstrap.min.css',102) %}
+            {% do assets.add('theme://css/font-awesome.min.css',101) %}
+            {% do assets.add('theme://css-compiled/theme.css',100) %}
 
             {{ assets.css() }}
         {% endblock %}
 
         {% block javascripts %}
-            {% do assets.add('@theme/js:jquery-2.1.1.min.js', 101) %}
-            {% do assets.add('@theme/js:modernizr.custom.71422.js', 100) %}
-            {% do assets.add('@theme/js:bootstrap.min.js') %}
+            {% do assets.add('theme://js/jquery-2.1.1.min.js', 101) %}
+            {% do assets.add('theme://js/modernizr.custom.71422.js', 100) %}
+            {% do assets.add('theme://js/bootstrap.min.js') %}
 
             {% if user_agent.getBrowserName == 'msie' and user_agent.getBrowserVersion >= 8 and user_agent.getBrowserVersion <= 9 %}
                 {% do assets.add('https://oss.maxcdn.com/respond/1.4.2/respond.min.js') %}
-                {% do assets.add('@theme/js:html5shiv-printshiv.min.js') %}
+                {% do assets.add('theme://js/html5shiv-printshiv.min.js') %}
             {% endif %}
 
             {{ assets.js() }}
