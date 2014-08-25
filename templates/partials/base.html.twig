@@ -18,7 +18,7 @@
         <title>{% if header.title %}{{ header.title }} | {% endif %}{{ site.title }}</title>
 
         <link rel="icon" type="image/png" href="{{ theme_url }}/images/favicon.png" />
-            {% block stylesheets %}
+        {% block stylesheets %}
             {% do assets.add('theme://css/bootstrap.min.css',102) %}
             {% do assets.add('theme://css/font-awesome.min.css',101) %}
             {% do assets.add('theme://css-compiled/theme.css',100) %}
@@ -54,5 +54,6 @@
                 <p class="text-muted">Bootstrap Theme for <a href="http://getgrav.org">Grav</a></p>
             </div>
         </div>
+        {% block bottom %}{% endblock %}
     </body>
 </html>
