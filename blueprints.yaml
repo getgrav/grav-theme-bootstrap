@@ -1,0 +1,8 @@
+name: Bootstrap
+version: 1.1.0
+author: Team Grav
+url: http://getgrav.org
+description: Bootstrap is built using Bootstrap 3.2.0 Framework.
+
+form:
+  fields:
