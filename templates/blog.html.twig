@@ -1,7 +1,7 @@
 {% embed 'partials/base.html.twig' %}
 
 	{% set collection = page.collection() %}
-	{% set base_url = base_url_relative ~ site.blog.route %}
+	{% set base_url = page.url %}
 
 	{% block content %}
         <div class="header">
