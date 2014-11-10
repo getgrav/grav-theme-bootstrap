@@ -1,7 +1,7 @@
 {% embed 'partials/base.html.twig' %}
 
 	{% set collection = page.collection() %}
-	{% set base_url = base_url_relative ~ site.blog.route %}
+	{% set base_url = page.url %}
 
 	{% block content %}
         <div class="header">
@@ -30,7 +30,13 @@
 
 	{% block pagination %}
 	    {% if collection.params.pagination %}
-	    {% include 'pagination.html.twig' with {'pagination':collection.params.pagination} %}
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-8 text-center">
+	                {% include 'pagination.html.twig' with {'pagination':collection.params.pagination} %}
+                </div>
+            </div>
+        </div>
 	    {% endif %}
 	{% endblock %}
 

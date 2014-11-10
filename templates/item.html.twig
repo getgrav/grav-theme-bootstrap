@@ -1,6 +1,6 @@
 {% embed 'partials/base.html.twig' %}
 
-	{% set base_url = base_url_relative ~ site.blog.route %}
+	{% set base_url = page.parent.url %}
 
 	{% block content %}
         <div class="container">
@@ -17,12 +17,6 @@
     			</div>
     		</div>
         </div>
-	{% endblock %}
-
-	{% block pagination %}
-	    {% if pagination %}
-	    {% include 'pagination.html.twig' %}
-	    {% endif %}
 	{% endblock %}
 
 {% endembed %}
