@@ -1,4 +1,7 @@
 # Bootstrap
+
+![Bootstrap](assets/readme_1.png)
+
 Bootstrap is a [Grav](http://github.com/getgrav/grav) theme that is based on the popular [Bootstrap framework](http://getbootstrap.com/).
 
 # Installation
