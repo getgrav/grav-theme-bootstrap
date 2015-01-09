@@ -2,14 +2,19 @@
 	<h4>Some Text Widget</h4>
 	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.</p>
 </div>
+{% if config.plugins.taxonomylist.enabled %}
 <div class="sidebar-content">
     <h4>Popular Tags</h4>
     {% include 'partials/taxonomylist.html.twig' with {'taxonomy':'tag'} %}
 </div>
+{% endif %}
+{% if config.plugins.archives.enabled %}
 <div class="sidebar-content">
     <h4>Archives</h4>
 	{% include 'partials/archives.html.twig' %}
 </div>
+{% endif %}
+{% if config.plugins.feed.enabled %}
 <div class="sidebar-content">
     <h4>Syndicate</h4>
     <div class="btn-group">
@@ -17,3 +22,4 @@
         <a class="btn btn-warning" href="{{ base_url }}.rss"><i class="fa fa-rss-square"></i> RSS</a>
     </div>
 </div>
+{% endif %}
