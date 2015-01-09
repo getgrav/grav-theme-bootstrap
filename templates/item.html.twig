@@ -7,7 +7,9 @@
 
 		<div class="row">
                 <div class="col-sm-8 blog-main">
-                    {% include 'partials/breadcrumbs.html.twig' %}
+					{% if config.plugins.breadcrumbs.enabled %}
+						{% include 'partials/breadcrumbs.html.twig' %}
+					{% endif %}
 
     			    {% include 'partials/blog_item.html.twig' with {'truncate':false,'big_header':true} %}
     			</div>

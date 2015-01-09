@@ -13,7 +13,9 @@
             <div class="row">
                 <div class="col-sm-8 blog-main">
 
-                    {% include 'partials/breadcrumbs.html.twig' %}
+                    {% if config.plugins.breadcrumbs.enabled %}
+                        {% include 'partials/breadcrumbs.html.twig' %}
+                    {% endif %}
 
                     {% for child in collection %}
                         {% include 'partials/blog_item.html.twig' with {'page':child, 'truncate':true} %}
@@ -29,11 +31,11 @@
 	{% endblock %}
 
 	{% block pagination %}
-	    {% if collection.params.pagination %}
+        {% if config.plugins.pagination.enabled and collection.params.pagination %}
         <div class="container">
             <div class="row">
                 <div class="col-sm-8 text-center">
-	                {% include 'pagination.html.twig' with {'pagination':collection.params.pagination} %}
+                    {% include 'partials/pagination.html.twig' with {'pagination':collection.params.pagination} %}
                 </div>
             </div>
         </div>
