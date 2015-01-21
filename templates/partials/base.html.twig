@@ -6,7 +6,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         {% include 'partials/metadata.html.twig' %}
-        <title>{% if header.title %}{{ header.title }} | {% endif %}{{ site.title }}</title>
+            <title>{% if header.title %}{{ header.title|e('html') }} | {% endif %}{{ site.title|e('html') }}</title>
 
         <link rel="icon" type="image/png" href="{{ theme_url }}/images/favicon.png" />
         {% block stylesheets %}
