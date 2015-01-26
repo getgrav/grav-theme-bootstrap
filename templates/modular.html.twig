@@ -1,8 +1,66 @@
 {% extends 'partials/base.html.twig' %}
 
+{% set show_onpage_menu = header.onpage_menu == true or header.onpage_menu is null %}
+{% macro pageLinkName(text) %}{{ text|lower|replace({' ':'_'}) }}{% endmacro %}
+
+{% block javascripts %}
+    {% if show_onpage_menu %}
+        {% do assets.add('theme://js/singlePageNav.min.js') %}
+    {% endif %}
+    {{ parent() }}
+{% endblock %}
+
+{% block bottom %}
+    {{ parent() }}
+    {% if show_onpage_menu %}
+        <script>
+        // singlePageNav initialization & configuration
+        $('#navbar').singlePageNav({
+            offset: $('#header').outerHeight(),
+            filter: ':not(.external)',
+            updateHash: true,
+            currentClass: 'active'
+        });
+        </script>
+    {% endif %}
+{% endblock %}
+
+{% block body_classes %}{{ parent() }} fixed-nav{% endblock %}
+
+{% block header_navigation %}
+    {% if show_onpage_menu %}
+        <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="{{ base_url == '' ? '/' : base_url }}">Grav</a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    {% for module in page.collection() %}
+
+                        {% set current_module = (module.active or module.activeChild) ? 'active' : '' %}
+                        <li class="{{ current_module }}"><a href="#{{ _self.pageLinkName(module.menu) }}">{{ module.menu }}</a></li>
+
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </nav>
+    {% else %}
+        {{  parent() }}
+    {% endif %}
+{% endblock %}
+
 {% block content %}
     {{ page.content }}
     {% for module in page.collection() %}
+    	<div class="modular-anchor" id="{{ _self.pageLinkName(module.menu) }}"></div>
         {{ module.content }}
     {% endfor %}
 {% endblock %}

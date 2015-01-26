@@ -1,0 +1,41 @@
+<nav class="navbar navbar-default navbar-static-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="{{ base_url == '' ? '/' : base_url }}">Grav</a>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+                {% for page in pages.children.visible %}
+                    {% set current_page = (page.active or page.activeChild) ? 'active' : '' %}
+                    {% if config.themes.bootstrap.dropdown.enabled and page.children.visible.count > 0 %}
+                        <li class="dropdown {{ current_page }}">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{ page.menu }} <span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                {% set current_parent = page.active ? 'active' : '' %}
+                                <li class="{{ current_parent }}"><a href="{{ page.url }}">{{ page.menu }}</a></li>
+                                <li class="divider"></li>
+                                {% for child in page.children.visible %}
+                                    {% set current_child = (child.active or child.activeChild) ? 'active' : '' %}
+                                    <li class="{{ current_child }}"><a href="{{ child.url }}">{{ child.menu }}</a></li>
+                                {% endfor %}
+                            </ul>
+                        </li>
+                    {% else %}
+                        <li class="{{ current_page }}"><a href="{{ page.url }}">{{ page.menu }}</a></li>
+                    {% endif %}
+                {% endfor %}
+                {% for mitem in site.menu %}
+                    <li>
+                        <a href="{{ mitem.url }}">{{ mitem.text }}</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</nav>
