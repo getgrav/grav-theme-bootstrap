@@ -1,3 +1,9 @@
+# v1.2.0
+## 01/26/2015
+
+1. [](#new)
+    * Extensive updates syncing functionality with current Antimatter theme
+
 # v1.1.4
 ## 01/09/2015
 

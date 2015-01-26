@@ -19,3 +19,26 @@ ol.breadcrumb {
   display: inline !important;
   border: 0 !important;
 }
+
+// Related-Pages
+.related-pages {
+    padding: 0;
+    list-style: none;
+    li {
+        border-bottom: 1px solid $border-color;
+        line-height: $core-font-size + 20px;
+        &:last-child {
+            border-bottom: 0;
+        }
+        a {
+            display: block;
+        }
+    }
+
+    .score {
+        display: block;
+        float: right;
+        color: #999;
+        font-size: 85%
+    }
+}

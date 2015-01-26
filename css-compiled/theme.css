@@ -140,6 +140,22 @@ ol.breadcrumb {
   display: inline !important;
   border: 0 !important; }
 
+.related-pages {
+  padding: 0;
+  list-style: none; }
+  .related-pages li {
+    border-bottom: 1px solid #f0f0f0;
+    line-height: 34px; }
+    .related-pages li:last-child {
+      border-bottom: 0; }
+    .related-pages li a {
+      display: block; }
+  .related-pages .score {
+    display: block;
+    float: right;
+    color: #999;
+    font-size: 85%; }
+
 .btn-file {
   position: relative;
   overflow: hidden; }
@@ -236,5 +252,13 @@ ol.breadcrumb {
 
 .modular .modular-row:last-child {
   margin-bottom: 2rem; }
+.modular .modular-anchor {
+  display: block;
+  position: relative;
+  top: -50px;
+  visibility: hidden; }
+
+body.fixed-nav {
+  padding-top: 50px; }
 
 /*# sourceMappingURL=theme.css.map */

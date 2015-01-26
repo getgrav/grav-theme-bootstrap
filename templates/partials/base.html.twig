@@ -6,7 +6,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         {% include 'partials/metadata.html.twig' %}
-        <title>{% if header.title %}{{ header.title }} | {% endif %}{{ site.title }}</title>
+            <title>{% if header.title %}{{ header.title|e('html') }} | {% endif %}{{ site.title|e('html') }}</title>
 
         <link rel="icon" type="image/png" href="{{ theme_url }}/images/favicon.png" />
         {% block stylesheets %}
@@ -14,8 +14,8 @@
             {% do assets.add('theme://css/font-awesome.min.css',101) %}
             {% do assets.add('theme://css-compiled/theme.css',100) %}
 
-            {{ assets.css() }}
         {% endblock %}
+        {{ assets.css() }}
 
         {% block javascripts %}
             {% do assets.add('theme://js/jquery-2.1.1.min.js', 101) %}
@@ -27,16 +27,17 @@
                 {% do assets.add('theme://js/html5shiv-printshiv.min.js') %}
             {% endif %}
 
-            {{ assets.js() }}
         {% endblock %}
+        {{ assets.js() }}
 
         {% endblock head%}
     </head>
 
-      <body class="{{ page.header.body_classes }}">
+      <body class="{% block body_classes %}{{ page.header.body_classes }}{% endblock %}">
 
-        {# include the header + navigation #}
-        {% include 'partials/header.html.twig' %}
+        {% block header_navigation %}
+            {% include 'partials/navigation.html.twig' %}
+        {% endblock %}
 
         {% block content %}{% endblock %}
         {% block pagination %}{% endblock %}
