@@ -1,3 +1,9 @@
+# v1.2.1
+## 02/10/2015
+
+1. [](#improved)
+    * Added demo link to blueprint
+
 # v1.2.0
 ## 01/26/2015
 
