@@ -1,5 +1,5 @@
 name: Bootstrap
-version: 1.2.0
+version: 1.2.1
 description: "Bootstrap is built using **Bootstrap 3.2.0** Framework"
 icon: bold
 author:
@@ -7,6 +7,7 @@ author:
   email: devs@getgrav.org
   url: http://getgrav.org
 homepage: https://github.com/getgrav/grav-theme-bootstrap
+demo: http://demo.getgrav.org/bootstrap-skeleton/
 keywords: bootstrap, theme, framework
 bugs: https://github.com/getgrav/grav-theme-bootstrap/issues
 license: MIT
