@@ -12,6 +12,9 @@ keywords: bootstrap, theme, framework
 bugs: https://github.com/getgrav/grav-theme-bootstrap/issues
 license: MIT
 
+dependencies:
+  - bootstrapper
+
 form:
   validation: strict
   fields:

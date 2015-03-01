@@ -49,6 +49,12 @@ Manually updating Bootstrap is pretty simple. Here is what you will need to do t
 
 > Note: Any changes you have made to any of the files listed under this directory will also be removed and replaced by the new set. Any files located elsewhere (for example a YAML settings file placed in `user/config/themes`) will remain intact.
 
+## Dependencies
+
+The Bootstrap theme now depends on the [Bootstrapper plugin](https://github.com/getgrav/grav-plugin-bootstrapper) to provide the appropriate CSS and JS.  If you install via GPM, you should be prompted to also install this plugin.  If not you should manually install via:
+
+    bin/gpm install bootstrapper
+
 # Setup
 
 If you want to set Bootstrap as the default theme, you can do so by following these steps:
