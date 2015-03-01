@@ -1,3 +1,10 @@
+# v1.3.0
+## 02/28/2015
+
+2. [](#improved)
+    * Now relies on Grav 0.9.19+
+    * Relies on new `bootstrapper` plugin to load Bootstrap CSS and JS
+
 # v1.2.2
 ## 02/19/2015
 
