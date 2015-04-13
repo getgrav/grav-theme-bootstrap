@@ -1,3 +1,10 @@
+# v1.3.1
+## 04/13/2015
+
+1. [](#bugfix)
+    * Fix for image class in modular template 'text.html.twig`
+
+
 # v1.3.0
 ## 02/28/2015
 
