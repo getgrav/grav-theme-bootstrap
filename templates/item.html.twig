@@ -24,7 +24,7 @@
     			</div>
 
                 <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
-    				{% include 'partials/sidebar.html.twig' %}
+    				{% include 'partials/sidebar.html.twig' with {'blog':page.parent}%}
     			</div>
     		</div>
         </div>
