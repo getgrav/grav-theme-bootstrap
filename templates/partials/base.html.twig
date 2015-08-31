@@ -7,7 +7,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         {% include 'partials/metadata.html.twig' %}
         <title>{% if header.title %}{{ header.title|e('html') }} | {% endif %}{{ site.title|e('html') }}</title>
-        <link rel="icon" type="image/png" href="{{ url('theme://images/favicon.png') }}" />
+        <link rel="icon" type="image/png" href="{{ url('theme://images/favicon.png', true) }}" />
         {% block stylesheets %}
             {% do assets.add('theme://css/font-awesome.min.css',99) %}
             {% do assets.add('theme://css-compiled/theme.css',98) %}
@@ -30,7 +30,9 @@
     </head>
 
       <body class="{% block body_classes %}{{ page.header.body_classes }}{% endblock %}">
-
+        {% if config.plugins.langswitcher.enabled %}
+            {% include 'partials/langswitcher.html.twig' %}
+        {% endif %}
         {% block header_navigation %}
             {% include 'partials/navigation.html.twig' %}
         {% endblock %}

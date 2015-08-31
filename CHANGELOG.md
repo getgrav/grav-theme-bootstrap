@@ -1,3 +1,16 @@
+# v1.4.0
+## 08/31/2015
+
+1. [](#new)
+    * Added support for `login-status` partial in menu
+    * Added support for `langswitcher` plugin
+1. [](#improved)
+    * Use new toggle for item blueprint
+    * Made sidebar links more robust
+1. [](#bugfix)
+    * Favicon with full image URL
+    * Fixed sidebar links when site at root
+
 # v1.3.3
 ## 08/25/2015
 

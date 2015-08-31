@@ -33,7 +33,7 @@
                 </div>
 
         		<div class="col-sm-3 col-sm-offset-1 blog-sidebar">
-       				{% include 'partials/sidebar.html.twig' %}
+       				{% include 'partials/sidebar.html.twig' with {'blog':page} %}
         		</div>
             </div>
         </div>
@@ -44,7 +44,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-8 text-center">
-                    {% include 'partials/pagination.html.twig' with {'pagination':collection.params.pagination} %}
+                    {% include 'partials/pagination.html.twig' with {'base_url':page.url, 'pagination':collection.params.pagination} %}
                 </div>
             </div>
         </div>
