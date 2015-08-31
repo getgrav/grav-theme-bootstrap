@@ -44,7 +44,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-8 text-center">
-                    {% include 'partials/pagination.html.twig' with {'pagination':collection.params.pagination} %}
+                    {% include 'partials/pagination.html.twig' with {'base_url':page.url, 'pagination':collection.params.pagination} %}
                 </div>
             </div>
         </div>
