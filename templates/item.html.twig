@@ -20,7 +20,7 @@
 						{% include 'partials/breadcrumbs.html.twig' %}
 					{% endif %}
 
-    			    {% include 'partials/blog_item.html.twig' with {'truncate':false,'big_header':true} %}
+    			    {% include 'partials/blog_item.html.twig' with {'blog':page.parent, 'truncate':false, 'big_header':true} %}
     			</div>
 
                 <div class="col-sm-3 col-sm-offset-1 blog-sidebar">

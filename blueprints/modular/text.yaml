@@ -1,10 +1,24 @@
-title: Showcase
+title: Text
 @extends: default
 
 form:
   fields:
     tabs:
       fields:
+        advanced:
+          fields:
+            columns:
+              fields:
+                column1:
+                  fields:
+                    name:
+                      default: modular/text
+                      @data-options: '\Grav\Common\Page\Pages::modularTypes'
+            overrides:
+              fields:
+                header.template:
+                  default: modular/text
+                  @data-options: '\Grav\Common\Page\Pages::modularTypes'
         content:
           fields:
             uploads:
@@ -18,12 +32,3 @@ form:
                 'left': 'Left'
                 'right': 'Right'
               type:
-        advanced:
-          fields:
-            columns:
-              fields:
-                column1:
-                  fields:
-                    type:
-                      default: modular/text
-                      @data-options: '\Grav\Common\Page\Pages::modularTypes'
