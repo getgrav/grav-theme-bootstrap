@@ -1,3 +1,9 @@
+# v1.4.1
+## 09/16/2015
+
+1. [](#improved)
+    * Use new form plugin templates
+
 # v1.4.0
 ## 08/31/2015
 
