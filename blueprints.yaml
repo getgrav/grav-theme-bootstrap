@@ -18,6 +18,11 @@ dependencies:
 form:
   validation: strict
   fields:
+    menu.section:
+          type: section
+          title: Menu settings
+          underline: false
+
     dropdown.enabled:
         type: toggle
         label: Dropdown in navbar
@@ -28,3 +33,13 @@ form:
           0: Disabled
         validate:
           type: bool
+
+    menu.icons:
+      type: select
+      label: Use icons in top-level navigation
+      default: 0
+      options:
+        0: No, only text
+        1: Yes, before text
+        2: Yes, after text
+        3: Yes, instead text

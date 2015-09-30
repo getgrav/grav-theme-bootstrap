@@ -1,3 +1,9 @@
+# v1.5.0
+## 09/30/2015
+
+1. [](#new)
+    * Option to use icons in top-level navigation
+
 # v1.4.1
 ## 09/16/2015
 
