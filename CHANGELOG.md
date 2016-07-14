@@ -1,3 +1,14 @@
+# v1.5.0
+## 07/14/2016
+
+1. [](#improved)
+    * Dropped own version of Bootstrap, rely on the Bootstrapper plugin
+    * Add the bootstrap-styled email form field twig template
+1. [](#bugfix)
+    * Fix setting the page language in the html tag
+    * Replace the hardcoded "Grav" title with the actual site title
+    * Include the correct javascript file that highlights the active section in the menu
+    
 # v1.4.1
 ## 09/16/2015
 
