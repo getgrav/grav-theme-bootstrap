@@ -25,7 +25,7 @@
     {% endif %}
 {% endblock %}
 
-{% block body_classes %}{{ parent() }} fixed-nav{% endblock %}
+{% block body_classes %}{{ parent() }} {% if show_onpage_menu %}fixed-nav{% endif %} {% endblock %}
 
 {% block header_navigation %}
     {% if show_onpage_menu %}
