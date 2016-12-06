@@ -4,9 +4,9 @@
 
         <label class="control-label col-sm-2">
             {% if field.help %}
-            <span class="tooltip" data-asTooltip-position="w" title="{{ field.help|e }}">{{ field.label }}</span>
+            <span class="tooltip" data-asTooltip-position="w" title="{{ field.help|e }}">{{ field.label|default(field.name|capitalize)|t }}</span>
             {% else %}
-            {{ field.label }}
+            {{ field.label|default(field.name|capitalize)|t }}
             {% endif %}
             {{ field.validate.required in ['on', 'true', 1] ? '<span class="required">*</span>' }}
         </label>
