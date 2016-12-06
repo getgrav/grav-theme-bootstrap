@@ -4,6 +4,7 @@
 1. [](#bugfix)
     * Only set fixed-nav class on body element when show_onpage_menu is true [#15](https://github.com/getgrav/grav-theme-bootstrap/pull/15)
     * Translate label in custom form field templates
+    * Add custom styling for login forms
 
 # v1.5.0
 ## 07/14/2016
