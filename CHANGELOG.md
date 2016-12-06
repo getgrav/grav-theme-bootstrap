@@ -1,3 +1,11 @@
+# v1.6.0
+## 12/06/2016
+
+1. [](#bugfix)
+    * Only set fixed-nav class on body element when show_onpage_menu is true [#15](https://github.com/getgrav/grav-theme-bootstrap/pull/15)
+    * Translate label in custom form field templates
+    * Add custom styling for login forms
+
 # v1.5.0
 ## 07/14/2016
 
@@ -8,7 +16,7 @@
     * Fix setting the page language in the html tag
     * Replace the hardcoded "Grav" title with the actual site title
     * Include the correct javascript file that highlights the active section in the menu
-    
+
 # v1.4.1
 ## 09/16/2015
 
