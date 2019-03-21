@@ -1,18 +1,18 @@
 <!DOCTYPE html>
-<html lang="{{ grav.language.getLanguage ?: 'en' }}">
+<html lang="{{ grav.language.getActive ?: grav.config.site.default_lang }}">
     <head>
-        {% block head %}
+    {% block head %}
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         {% include 'partials/metadata.html.twig' %}
         <title>{% if header.title %}{{ header.title|e('html') }} | {% endif %}{{ site.title|e('html') }}</title>
         <link rel="icon" type="image/png" href="{{ url('theme://images/favicon.png', true) }}" />
+        
         {% block stylesheets %}
             {% do assets.add('theme://css/font-awesome.min.css',99) %}
             {% do assets.add('theme://css-compiled/theme.css',98) %}
         {% endblock %}
-        {{ assets.css() }}
 
         {% block javascripts %}
             {% do assets.add('jquery', 101) %}
@@ -22,14 +22,17 @@
                 {% do assets.add('https://oss.maxcdn.com/respond/1.4.2/respond.min.js') %}
                 {% do assets.add('theme://js/html5shiv-printshiv.min.js') %}
             {% endif %}
-
         {% endblock %}
-        {{ assets.js() }}
 
-        {% endblock head%}
+        {% block assets deferred %}
+            {{ assets.css()|raw }}
+            {{ assets.js()|raw }}
+        {% endblock %}
+
+    {% endblock head%}
     </head>
 
-      <body class="{% block body_classes %}{{ page.header.body_classes }}{% endblock %}">
+    <body class="{% block body_classes %}{{ page.header.body_classes }}{% endblock %}">
         {% if config.plugins.langswitcher.enabled %}
             {% include 'partials/langswitcher.html.twig' %}
         {% endif %}
@@ -45,6 +48,8 @@
                 <p class="text-muted">Bootstrap Theme for <a href="http://getgrav.org">Grav</a></p>
             </div>
         </div>
-        {% block bottom %}{% endblock %}
+    {% block bottom %}
+        {{ assets.js('bottom')|raw }}
+    {% endblock %}
     </body>
 </html>
