@@ -29,7 +29,7 @@
         </span>
         {% endif %}
         {% if big_header %}
-            {{ page.media.images|first.cropResize(900,600).html('','blog-header-image') }}
+            {{ page.media.images|first.cropResize(900,600).html('','blog-header-image')|raw }}
         {% else %}
             {% if header_image %}
                 {% if header_image_file %}
@@ -37,7 +37,7 @@
                 {% else %}
                     {% set header_image_media = page.media.images|first %}
                 {% endif %}
-                {{ header_image_media.cropZoom(header_image_width, header_image_height).html }}
+                {{ header_image_media.cropZoom(header_image_width, header_image_height).html|raw }}
             {% endif %}
         {% endif %}
     </div>
