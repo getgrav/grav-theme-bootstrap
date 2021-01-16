@@ -45,7 +45,7 @@
     <div class="list-blog-padding">
 
     {% if page.header.continue_link is sameas(false) %}
-        <p>{{ page.content }}</p>
+        <p>{{ page.content|raw }}</p>
         {% if not truncate %}
         {% set show_prev_next = true %}
         {% endif %}
@@ -56,11 +56,11 @@
         {% if page.summary != page.content %}
             <p>{{ page.content|truncate(550) }}</p>
         {% else %}
-            <p>{{ page.content }}</p>
+            <p>{{ page.content|raw }}</p>
         {% endif %}
         <p><a href="{{ page.url }}">Continue Reading...</a></p>
     {% else %}
-        <p>{{ page.content }}</p>
+        <p>{{ page.content|raw }}</p>
         {% set show_prev_next = true %}
     {% endif %}
 
