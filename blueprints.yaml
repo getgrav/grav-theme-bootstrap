@@ -1,5 +1,7 @@
 name: Bootstrap
-version: 1.7.0
+slug: bootstrap
+type: theme
+version: 1.7.1
 description: "Bootstrap is built using the popular **Bootstrap** Framework"
 icon: bold
 author:
