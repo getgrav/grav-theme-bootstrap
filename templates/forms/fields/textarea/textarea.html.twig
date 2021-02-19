@@ -10,6 +10,29 @@
             {{ field.validate.required in ['on', 'true', 1] ? '<span class="required">*</span>' }}
     </label>
     <div class="col-sm-10">
-        <textarea rows="10" class="form-control" name="{{ (scope ~ field.name)|fieldName }}">{{ value|join("\n") }}</textarea>
+        <textarea
+            class="form-control {{ field.classes|default('input') }}"
+
+            {# required attribute structures #}
+            name="{{ (scope ~ field.name)|fieldName }}"
+            {# input attribute structures #}
+            {% block input_attributes %}
+                {% if field.classes is defined %}class="{{ field.classes }}" {% endif %}
+                {% if field.id is defined %}id="{{ field.id|e }}" {% endif %}
+                {% if field.style is defined %}style="{{ field.style|e }}" {% endif %}
+                {% if field.disabled or isDisabledToggleable %}disabled="disabled"{% endif %}
+                {% if field.placeholder %}placeholder="{{ field.placeholder|t }}"{% endif %}
+                {% if field.autofocus in ['on', 'true', 1] %}autofocus="autofocus"{% endif %}
+                {% if field.novalidate in ['on', 'true', 1] %}novalidate="novalidate"{% endif %}
+                {% if field.readonly in ['on', 'true', 1] %}readonly="readonly"{% endif %}
+                {% if field.autocomplete in ['on', 'off'] %}autocomplete="{{ field.autocomplete }}"{% endif %}
+                {% if field.validate.required in ['on', 'true', 1] %}required="required"{% endif %}
+                {% if field.validate.pattern %}pattern="{{ field.validate.pattern }}"{% endif %}
+                {% if field.validate.message %}title="{% if grav.twig.twig.filters['tu'] is defined %}{{ field.validate.message|e|tu }}{% else %}{{ 
+field.validate.message|e|t }}{% endif %}"{% endif %}
+                rows="{{ field.rows|default('10') }}"
+                {% if field.cols is defined %}cols="{{ field.cols }}"{% endif %}
+            {% endblock %}
+            >{{ value|trim|e('html') }}</textarea>
     </div>
 </div>
